@@ -9,8 +9,8 @@ const TodoList = (props) => {
     }
     return (
       <div style={{gridColumnStart:'2', gridRowStart: '2'}}>
-          {todos.map((todo)=>{
-              return <TodoTask key={todo.taskId} id={todo.taskId} task={todo.task} handleDeleteTask={handleDeleteTask} />
+          {todos.map((todo, i)=>{
+              return <TodoTask key={i} id={todo.taskId} task={todo.task} handleDeleteTask={handleDeleteTask} />
           })}
       </div>
     )

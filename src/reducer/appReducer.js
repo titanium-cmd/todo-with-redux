@@ -9,14 +9,15 @@ const initState = {
 }
 
 const appReducer = (state = initState, action) => {
-    console.log(action);
-    // switch (action) {
-    //     case action.type === 'DELETE_TODO':
-            
-    //         break;
-    //     default:
-    //         break;
-    // }
+    switch (action.type) {
+        case 'DELETE_TODO':
+            const newTodos = state.todos.filter((todo)=>todo.taskId !== action.id);
+            return {
+                ...state, todos: [...newTodos]
+            }
+        default:
+            break;
+    }
     return state;
 }
 
