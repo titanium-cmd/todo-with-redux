@@ -12,6 +12,7 @@ const TodoList = (props) => {
           {todos.map((todo, i)=>{
               return <TodoTask key={i} id={todo.taskId} task={todo.task} handleDeleteTask={handleDeleteTask} />
           })}
+          { todos.length > 0 ? '' : <p style={{fontSize: '1.1rem', fontWeight: 'bold', width: '100%', textAlign: 'center'}}>No Todo</p> }
       </div>
     )
 }
