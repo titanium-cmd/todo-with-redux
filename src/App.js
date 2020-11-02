@@ -4,19 +4,19 @@ import TodoList from './TodoList'
 import { connect } from 'react-redux';
 
 const App = (props) => {
-    const {todos} = props;
+  const {todos} = props;
   return (
     <div style={{width: '100%', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'repeat(3, 1fr)',  height: '100vh'}}>
         <TodoForm />
-        <TodoList todos={todos} />
+        <TodoList todos={todos}/>
     </div>
   )
 }
 
-const mapToTodo = (state) => {
-    return {
-        todos: state.todos
-    }
+const mapToStateToProps = (state) => {
+  return {
+    todos: state.todos
+  }
 }
 
-export default connect(mapToTodo)(App);
+export default connect(mapToStateToProps)(App);

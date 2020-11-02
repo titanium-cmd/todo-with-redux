@@ -1,14 +1,27 @@
 import React from 'react'
 import TodoTask from './TodoTask'
+import {connect} from 'react-redux';
 
-const TodoList = ({todos}) => {
-  return (
+const TodoList = (props) => {
+    const {todos} = props;
+    const handleDeleteTask = (id) => {
+        props.deleteTask(id);
+    }
+    return (
       <div style={{gridColumnStart:'2', gridRowStart: '2'}}>
           {todos.map((todo)=>{
-              return <TodoTask key={todo.taskId} id={todo.taskId} task={todo.task} />
+              return <TodoTask key={todo.taskId} id={todo.taskId} task={todo.task} handleDeleteTask={handleDeleteTask} />
           })}
       </div>
-  )
+    )
 }
 
-export default TodoList
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteTask: (taskId) => {
+            dispatch({type: 'DELETE_TODO', id: taskId});
+        }
+    }
+}
+
+export default connect(null,mapDispatchToProps)(TodoList)

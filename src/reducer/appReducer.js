@@ -9,6 +9,14 @@ const initState = {
 }
 
 const appReducer = (state = initState, action) => {
+    console.log(action);
+    // switch (action) {
+    //     case action.type === 'DELETE_TODO':
+            
+    //         break;
+    //     default:
+    //         break;
+    // }
     return state;
 }
 
